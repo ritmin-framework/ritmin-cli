@@ -1,0 +1,28 @@
+{
+  "name": "ritmin-cli",
+  "version": "1.0.0",
+  "description": "Command-line interface for the Ritmin framework",
+  "main": "index.js",
+  "bin": {
+    "ritmin": "./source/index.js"
+  },
+  "scripts": {},
+  "keywords": [
+    "cli",
+    "ritmin",
+    "framework"
+  ],
+  "engines": {
+    "ritmin": ">=1.0.0"
+  },
+  "author": "moha285",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "@types/yargs": "^17.0.33",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}
