@@ -1,4 +1,4 @@
-# This workflow will run tests using node and then publish a package to npm when changes are pushed to the main branch
+# This workflow will publish a package to npm when changes are pushed to the main branch
 
 name: Ritmin Cli
 
@@ -8,28 +8,22 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: yarn install
-
-     # - name: Run tests
-     #   run: yarn test
-
   publish-yarn:
-    needs: build
     runs-on: windows-latest 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3 # Use the correct version of the action
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20' # Specify the Node.js version here
+          node-version: '20'
           registry-url: https://registry.npmjs.org/
       - run: yarn install
+      
+      # Add these steps to configure Git
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
       - run: yarn version --patch # Increase the version number by a patch increment
       - run: yarn publish --access public
         env:
