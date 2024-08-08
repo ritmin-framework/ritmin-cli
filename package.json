@@ -1,12 +1,14 @@
 {
   "name": "ritmin-cli",
-  "version": "1.0.0",
+  "version": "v1.0.0-beta.1",
   "description": "Command-line interface for the Ritmin framework",
   "main": "index.js",
   "bin": {
     "ritmin": "./source/index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [
     "cli",
     "ritmin",
@@ -23,6 +25,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "jest": "^29.7.0",
     "yargs": "^17.7.2"
   }
 }
