@@ -24,12 +24,13 @@ jobs:
     needs: build
     runs-on: windows-latest 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v20
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3 # Use the correct version of the action
         with:
-          node-version: 20
+          node-version: '20' # Specify the Node.js version here
           registry-url: https://registry.npmjs.org/
       - run: yarn install
+      - run: yarn version --patch # Increase the version number by a patch increment
       - run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
